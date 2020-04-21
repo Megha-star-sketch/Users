@@ -13,7 +13,7 @@ public class Staff {
 	String address;
 	String phone_no;
 	String email;
-	String qualification;
+	String qualification;	
 	String experience;
 	String dob_date;
 	String doj_date;
