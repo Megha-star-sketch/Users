@@ -39,22 +39,16 @@ public class DepControl {
 	}
 	
 	@GetMapping("/get/{id}")
-	public List<Department> getDepartment(@PathVariable int id) {
+	public int getDepartment(@PathVariable int id) {
 		
 		return service.getDepartmentName(id);
 	}
 	
-//	@PutMapping("/update/{id}/{tech}")
-//	public int UpdateName(@PathVariable("id") int d_id, @PathVariable("name") String d_name)
-//	{
-//		return service.updateByName(d_id,d_name);
-//	}
-	
-//	@PutMapping("/update")
-//	public Department updateName(@RequestBody Department dept)
-//	{
-//		return service.update(dept);
-//	}
+	@PutMapping("/update/{d_id}")
+	public Department updateName(@RequestBody Department dept)
+	{
+		return service.update(dept);
+	}
 	
 	
 	

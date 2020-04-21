@@ -16,28 +16,4 @@ import com.users.users.Model.Department;
 
 @Repository
 public interface DepDao extends JpaRepository<Department,Integer>{
-	
-	public Department save(Department dept);
-	
-	public void deleteById(@PathVariable int d_id);
-	
-
-	@Query("select u from Department u")
-	public List<Department> getAll();
-
-
-	public List<Department> findById(int id);
-	
-//	@Transactional
-//	@Modifying
-//	@Query("update Department d set d.name=?1 where d.id=?2")
-//	int setDepartmentName( @Param("id") int d_id,@Param("name")String d_name);
-	
-//	@Modifying
-//	@Transactional
-//	public Department update(@RequestBody Department dept);
-//	
-	
-	
-	
 }

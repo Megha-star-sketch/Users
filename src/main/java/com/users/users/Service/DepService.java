@@ -28,23 +28,20 @@ public class DepService {
 	
 	public List<Department> getDept()
 	{
-		return dao.getAll();
+		return dao.findAll();
 	}
 	
-	public List<Department> getDepartmentName(int id)
+	public int getDepartmentName(int id)
 	{
-		 return dao.findById(id);
+		 dao.findById(id);
+		 return id;
 	}
 	
-//	public int updateByName(int d_id, String d_name)
-//	{
-//		return dao.setDepartmentName(d_id, d_name);
-//	}
-//	
-//	public Department update(@RequestBody Department dept)
-//	{
-//		return dao.save(dept);
-//	}
+	public Department update(@RequestBody Department dept)
+		{
+			 dao.save(dept);
+			 return dept;
+	}
 	
 	
 	
