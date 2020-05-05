@@ -16,13 +16,18 @@ import com.users.users.Model.Staff;
 import com.users.users.Model.Student;
 import com.users.users.Service.StaffService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/Staff")
+@Api(value="Megha", tags= {"Staff Data"})
 public class StaffControl {
 	@Autowired
 	StaffService service;
 	
-	@PostMapping("/add")
+	@ApiOperation(value="Post data")
+	@PostMapping("/")
 	public Staff PostAllStaff(@RequestBody Staff staff)
 	{
 		return service.AddStaff(staff);

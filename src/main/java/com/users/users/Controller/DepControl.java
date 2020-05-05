@@ -14,14 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.users.users.Model.Department;
 import com.users.users.Service.DepService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/Department")
+@Api(value="Megha", tags= {"Department Data"})
 public class DepControl {
 	
 	@Autowired
 	private DepService service;
 	
-	@PostMapping("/addDepartment")
+	@ApiOperation(value="Post data")
+	@PostMapping("/")
 	public Department add(@RequestBody Department dept) {
 		return service.add(dept);
 	}

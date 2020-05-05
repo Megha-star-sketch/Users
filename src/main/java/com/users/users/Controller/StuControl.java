@@ -16,50 +16,69 @@ import org.springframework.web.bind.annotation.RestController;
 import com.users.users.Model.Student;
 import com.users.users.Service.StuService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/Student")
+@Api(value="Megha", tags= {"Student Data"})
+
 public class StuControl {
 	
 	@Autowired
 	private StuService service;
 	
-	@PostMapping("/data")
+	@ApiOperation(value="Post data")
+	@PostMapping("/")
 	public Student Register(@RequestBody Student stu)
 	{
 		return service.AddStudent(stu);
 	}
 	
-	@GetMapping("/getAll")
-	public List<Student> GetAllStu(@PathVariable String name)
+	@ApiOperation(value="Get all data ")
+	@ApiResponses(
+			value= {
+					@ApiResponse(code=100,message="100 is the message"),
+					@ApiResponse(code=200,message="Successfully succeed")
+			})
+	@GetMapping("/")
+	public List<Student> GetAllStu()
 	{
 		return service.GetAll();
 	}
 	
-	@PutMapping("/update/{name}")
+	@ApiOperation(value="Update data by name")
+	@PutMapping("/{name}")
 	public Student UpdateStu(@RequestBody Student stu)
 	{
 		return service.Update(stu);
 	}
 	
-	@GetMapping("/getid/{stu_id}")
+	@ApiOperation(value="Get data by Id")
+	@GetMapping("/{stu_id}")
 	public Student GetByIdStu(@PathVariable int stu_id)
 	{
 		return service.GetById(stu_id);
 	}
 	
-	@GetMapping("/getname/{name}")
-	public Student GetByNameStu(@PathVariable String name)
-	{
-		return service.GetByName(name);
-	}
+//	@ApiOperation(value="Get data by Name")
+//	@GetMapping("/{name}")
+//	public Student GetByNameStu(@PathVariable String name)
+//	{
+//		return service.GetByName(name);
+//	}
 	
+	@ApiOperation(value="Delete All data")
 	@DeleteMapping("/deleteall")
 	public Student DeleteAllStu(@RequestBody Student stu)
 	{
 		return service.DeleteAll(stu);
 	}
 
-	@DeleteMapping("/delete/{stu_id}")
+	@ApiOperation(value="Delete data by Id")
+	@DeleteMapping("/{stu_id}")
 	public void DeleteByIdStu(@PathVariable int stu_id)
 	{
 		service.DeleteById(stu_id);

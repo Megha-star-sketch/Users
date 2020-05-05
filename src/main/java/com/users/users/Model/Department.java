@@ -4,12 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name="Department")
 public class Department {
 	
 	@Id
 	private int d_id;
+	@ApiModelProperty(notes="Name")
 	private String d_name;
 	public int getD_id() {
 		return d_id;

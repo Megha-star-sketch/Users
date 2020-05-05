@@ -4,21 +4,30 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name="Student")
 public class Student {
 	@Id
 	int stu_id;
+	@ApiModelProperty(notes="Name")
 	String name;
+	@ApiModelProperty(notes="Address")
 	String address;
+	@ApiModelProperty(notes="Phone")
 	String phone;
+	@ApiModelProperty(notes="Email")
 	String email;
+	@ApiModelProperty(notes="Dob_Date")
 	String dob_date;
+	@ApiModelProperty(notes="Doj_Date")
 	String doj_date;
+	@ApiModelProperty(notes="Qualification")
 	String qualification;
+	@ApiModelProperty(notes="Criteria")
 	float criteria;
+	@ApiModelProperty(notes="Password")
 	String password;
 	public int getStu_id() {
 		return stu_id;

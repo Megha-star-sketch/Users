@@ -4,18 +4,28 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name="Staff")
 public class Staff {
 	@Id
 	int staff_id;
+	@ApiModelProperty(notes="Name")
 	String name;
+	@ApiModelProperty(notes="Address")
 	String address;
+	@ApiModelProperty(notes="Phone_no")
 	String phone_no;
+	@ApiModelProperty(notes="Email")
 	String email;
+	@ApiModelProperty(notes="Qualification")
 	String qualification;	
+	@ApiModelProperty(notes="Experience")
 	String experience;
+	@ApiModelProperty(notes="DOB_Date")
 	String dob_date;
+	@ApiModelProperty(notes="DOJ_Date")
 	String doj_date;
 	public int getStaff_id() {
 		return staff_id;
